@@ -2,6 +2,25 @@
 
 exports[`PromptForm component Tests Snapshot Tests 1`] = `
 <DocumentFragment>
-  Test
+  <h1>
+    Fun with AI
+  </h1>
+  <p>
+    Enter prompt
+  </p>
+  <form
+    data-testid="prompt-form"
+  >
+    <textarea />
+    <button>
+      Submit
+    </button>
+  </form>
+  <h2>
+    Responses
+  </h2>
+  <p>
+    Submit a prompt to get a response from the Open AI API!
+  </p>
 </DocumentFragment>
 `;

@@ -1,7 +1,7 @@
 import { rest } from "msw";
 
 export const handlers = [
-  rest.post("http://localhost:3001/create_completion", (req, res, ctx) => {
+  rest.post("http://localhost:8000/create_completion", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({

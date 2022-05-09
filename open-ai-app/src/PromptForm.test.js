@@ -11,8 +11,8 @@ describe("PromptForm component Tests", () => {
   it("Renders a form with a textarea, and submit button", () => {
     const screen = render(<PromptForm />);
 
-    const promptForm = screen.container.getElementsByTagName("form");
-    const textArea = screen.container.getElementsByTagName("textarea");
+    const promptForm = screen.getByTestId("prompt-form");
+    const textArea = screen.container.querySelector("textarea");
     const submitBtn = screen.getByText("Submit");
     expect(promptForm).toBeInTheDocument();
     expect(textArea).toBeInTheDocument();
