@@ -5,15 +5,22 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        prompt: "Say this is a test",
-        max_tokens: 5,
-        temperature: 1,
-        top_p: 1,
-        n: 1,
-        stream: false,
-        logprobs: null,
-        stop: "\n",
+        id: "cmpl-560uhqEKyyhmPQxkfrmCBB0Aulk1q",
+        object: "text_completion",
+        created: 1652115163,
+        model: "text-curie:001",
+        choices: [
+          {
+            text: " message\n\nHey, I",
+            index: 0,
+            logprobs: null,
+            finish_reason: "length",
+          },
+        ],
       })
     );
+  }),
+  rest.get("/", (req, res, ctx) => {
+    return res(ctx.status(200));
   }),
 ];

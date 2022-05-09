@@ -1,5 +1,5 @@
 import PromptForm from "./components/PromptForm";
-import { render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 describe("PromptForm component Tests", () => {
   it("Smoke Tests", () => {
     render(<PromptForm />);
@@ -17,5 +17,16 @@ describe("PromptForm component Tests", () => {
     expect(promptForm).toBeInTheDocument();
     expect(textArea).toBeInTheDocument();
     expect(submitBtn).toBeInTheDocument();
+  });
+  it("Submitting a form renders a response", async () => {
+    const screen = render(<PromptForm />);
+    const submitBtn = await screen.findByText("Submit");
+
+    await waitFor(() => {
+      fireEvent.click(submitBtn);
+      const response = screen.getByTestId("response");
+      expect(response).toBeInTheDocument();
+      expect(response).toHaveTextContent("Hey, I");
+    });
   });
 });
