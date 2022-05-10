@@ -53,9 +53,27 @@ const PromptForm = () => {
     <>
       <h1>Fun with AI</h1>
       <p>Enter prompt</p>
-      <form data-testid="prompt-form" onSubmit={handleSubmit}>
-        <textarea value={formData}></textarea>
-        <button>Submit</button>
+      <form
+        style={{
+          maxWidth: "80%",
+        }}
+        className="d-flex flex-column"
+        data-testid="prompt-form"
+        onSubmit={handleSubmit}
+      >
+        <textarea rows="10" value={formData}></textarea>
+        <button
+          type="button"
+          style={{
+            margin: "0 auto",
+            marginRight: "0px",
+            maxWidth: "80px",
+            backgroundColor: "#0043C8",
+          }}
+          className="btn btn-primary"
+        >
+          Submit
+        </button>
       </form>
       {responseContent}
     </>
