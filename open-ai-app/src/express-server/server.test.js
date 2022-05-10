@@ -17,7 +17,7 @@ describe("Server Tests", () => {
         model: "text-curie:001",
         choices: [
           {
-            text: " message\n\nHey, I",
+            text: expect.any(String),
             index: 0,
             logprobs: null,
             finish_reason: "length",

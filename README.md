@@ -16,7 +16,6 @@ This is my submission for Shopify's Front End Developer Intern position. The app
 - Open AI's completion API must be used.
 - It's recommended to use the `text-curie-001` engine.
 - Any framework can be used, or none.
-- The HTML must be served client-side.
 - The project must also be hosted on a live site.
 
 ## Extra Features:
