@@ -9,10 +9,17 @@ exports[`PromptForm component Tests Snapshot Tests 1`] = `
     Enter prompt
   </p>
   <form
+    class="d-flex flex-column"
     data-testid="prompt-form"
+    style="max-width: 80%;"
   >
-    <textarea />
-    <button>
+    <textarea
+      rows="10"
+    />
+    <button
+      class="btn btn-primary"
+      style="margin: 0px 0px 0px auto; max-width: 80px; background-color: rgb(0, 67, 200);"
+    >
       Submit
     </button>
   </form>

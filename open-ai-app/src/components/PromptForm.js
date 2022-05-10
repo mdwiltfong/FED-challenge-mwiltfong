@@ -12,9 +12,10 @@ const PromptForm = () => {
         id: uuid(),
         prompt: formData,
       };
+      console.log("Submit");
       const {
         data: { choices },
-      } = await axios.post("http://localhost:8000/create_completion", data);
+      } = await axios.post("http://localhost:8001/create_completion", data);
 
       setResponses((prevResponses) => [
         ...prevResponses,
@@ -23,6 +24,10 @@ const PromptForm = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setFormData(value);
   };
   let responseContent;
   if (responses.length > 0) {
@@ -61,9 +66,8 @@ const PromptForm = () => {
         data-testid="prompt-form"
         onSubmit={handleSubmit}
       >
-        <textarea rows="10" value={formData}></textarea>
+        <textarea onChange={handleChange} rows="10" value={formData}></textarea>
         <button
-          type="button"
           style={{
             margin: "0 auto",
             marginRight: "0px",

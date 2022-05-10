@@ -1,7 +1,6 @@
-const express = require("express");
-
-const app = express();
-
-app.listen(8000, () => {
-  console.log("Server is listening on 8000");
+const app = require("./app");
+app.listen(8001, () => {
+  console.log("Server is listening on 8001");
 });
+
+module.exports = app;
