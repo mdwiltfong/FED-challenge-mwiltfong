@@ -33,7 +33,7 @@ const PromptForm = () => {
     responseContent = (
       <>
         <h2>Responses</h2>
-        <ul>
+        <ul style={{ listStyle: "none" }}>
           {responses.map((response) => (
             <Response
               key={response.id}

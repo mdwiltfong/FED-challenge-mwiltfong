@@ -2,17 +2,17 @@ import React from "react";
 
 const Response = ({ prompt, response }) => {
   return (
-    <li>
+    <li style={{ fontWeight: "bold" }} className="bg-light text-dark">
       <div className="container">
         <div className="row">
-          <div className="col">Prompt:</div>
-          <div data-testid="prompt" className="col">
+          <div className="col-3 text-dark">Prompt:</div>
+          <div data-testid="prompt" className="col text-dark">
             {prompt}
           </div>
         </div>
         <div className="row">
-          <div className="col">Response</div>
-          <div data-testid="response" className="col">
+          <div className="col-3 text-dark">Response:</div>
+          <div data-testid="response" className="col text-dark">
             {response}
           </div>
         </div>
