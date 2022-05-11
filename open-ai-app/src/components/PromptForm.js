@@ -33,7 +33,7 @@ const PromptForm = () => {
     responseContent = (
       <>
         <h2>Responses</h2>
-        <ul style={{ listStyle: "none" }}>
+        <ul style={{ listStyle: "none", padding: "0" }}>
           {responses.map((response) => (
             <Response
               key={response.id}
@@ -59,7 +59,7 @@ const PromptForm = () => {
       <p>Enter prompt</p>
       <form
         style={{
-          maxWidth: "80%",
+          maxWidth: "100%",
         }}
         className="d-flex flex-column"
         data-testid="prompt-form"

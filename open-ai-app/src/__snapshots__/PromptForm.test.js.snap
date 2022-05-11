@@ -11,7 +11,7 @@ exports[`PromptForm component Tests Snapshot Tests 1`] = `
   <form
     class="d-flex flex-column"
     data-testid="prompt-form"
-    style="max-width: 80%;"
+    style="max-width: 100%;"
   >
     <textarea
       rows="10"

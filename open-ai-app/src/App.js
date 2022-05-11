@@ -3,7 +3,7 @@ import "./App.css";
 import PromptForm from "./components/PromptForm";
 function App() {
   return (
-    <div style={{ maxWidth: "50%" }} className="container">
+    <div style={{ maxWidth: "35%" }} className="container">
       <PromptForm />
     </div>
   );
