@@ -1,6 +1,6 @@
 const app = require("./app");
-app.listen(8001, () => {
-  console.log("Server is listening on 8001");
+app.listen(process.env.PORT, () => {
+  console.log(`Server is listening on ${process.env.PORT}`);
 });
 
 module.exports = app;

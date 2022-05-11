@@ -14,7 +14,7 @@ const PromptForm = () => {
       };
       const {
         data: { prompt, response },
-      } = await axios.post("http://localhost:8001/create_completion", data);
+      } = await axios.post("/create_completion", data);
 
       setResponses((prevResponses) => [
         ...prevResponses,
