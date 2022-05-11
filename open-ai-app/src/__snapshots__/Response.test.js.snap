@@ -4,7 +4,7 @@ exports[`Response component tests Snapshot Tests 1`] = `
 <DocumentFragment>
   <li
     class="bg-light text-dark"
-    style="font-weight: bold; margin: 20px; background-color: rgb(238, 238, 238);"
+    style="font-weight: bold; margin: 20px 0px; background-color: rgb(238, 238, 238);"
   >
     <div
       class="container"
