@@ -1,14 +1,15 @@
 const express = require("express");
 const OpenAI = require("./helper_functions/utils");
+const path = require("path");
 const app = express();
 const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.get("/", (req, res) => {
-  return res.sendStatus(200);
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-
 app.post("/create_completion", async (req, res) => {
   try {
     const { prompt } = req.body;
