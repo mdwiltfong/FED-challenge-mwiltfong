@@ -2,7 +2,10 @@ import React from "react";
 
 const Response = ({ prompt, response }) => {
   return (
-    <li style={{ fontWeight: "bold" }} className="bg-light text-dark">
+    <li
+      style={{ fontWeight: "bold", margin: "20px", backgroundColor: "#EEEEEE" }}
+      className="bg-light text-dark"
+    >
       <div className="container">
         <div className="row">
           <div className="col-3 text-dark">Prompt:</div>
