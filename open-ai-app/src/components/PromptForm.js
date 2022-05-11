@@ -12,14 +12,13 @@ const PromptForm = () => {
         id: uuid(),
         prompt: formData,
       };
-      console.log("Submit");
       const {
-        data: { choices },
+        data: { prompt, response },
       } = await axios.post("http://localhost:8001/create_completion", data);
 
       setResponses((prevResponses) => [
         ...prevResponses,
-        { id: uuid(), response: choices[0].text },
+        { id: uuid(), response: response, prompt: prompt },
       ]);
     } catch (error) {
       console.log(error);

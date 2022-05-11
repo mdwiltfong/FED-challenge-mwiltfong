@@ -2,10 +2,37 @@
 
 exports[`Response component tests Snapshot Tests 1`] = `
 <DocumentFragment>
-  <li
-    data-testid="response"
-  >
-    Prompt: Response:
+  <li>
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col"
+        >
+          Prompt:
+        </div>
+        <div
+          class="col"
+          data-testid="prompt"
+        />
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col"
+        >
+          Response
+        </div>
+        <div
+          class="col"
+          data-testid="response"
+        />
+      </div>
+    </div>
   </li>
 </DocumentFragment>
 `;

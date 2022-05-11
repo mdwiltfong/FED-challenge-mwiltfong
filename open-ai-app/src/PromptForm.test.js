@@ -26,7 +26,7 @@ describe("PromptForm component Tests", () => {
       fireEvent.click(submitBtn);
       const response = screen.getByTestId("response");
       expect(response).toBeInTheDocument();
-      expect(response).toHaveTextContent("Hey, I");
+      expect(response).toHaveTextContent("This is a test");
     });
   });
 });
