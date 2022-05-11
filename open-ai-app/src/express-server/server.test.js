@@ -7,22 +7,14 @@ describe("Server Tests", () => {
     expect(response.statusCode).toBe(200);
   });
   it("Client code sends properly structured payload", async () => {
-    const response = await request(app).post("/create_completion");
+    const response = await request(app).post("/create_completion").send({
+      prompt: "This is a test",
+    });
     expect(response.statusCode).toBe(200);
-    expect(response.body).toBe(
+    expect(response.body).toEqual(
       expect.objectContaining({
-        id: expect.any(String),
-        object: "text_completion",
-        created: expect.any(Number),
-        model: "text-curie:001",
-        choices: [
-          {
-            text: expect.any(String),
-            index: 0,
-            logprobs: null,
-            finish_reason: "length",
-          },
-        ],
+        prompt: expect.any(String),
+        response: expect.any(String),
       })
     );
   });
