@@ -1,9 +1,9 @@
 const dotenv = require("dotenv");
 const axios = require("axios");
 const env = dotenv.config();
-console.log(env);
+
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-console.log(OPENAI_API_KEY);
+
 class OpenAI {
   static async create_completion(prompt) {
     try {

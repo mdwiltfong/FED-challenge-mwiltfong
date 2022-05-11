@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Response component tests Snapshot Tests 1`] = `
+<DocumentFragment>
+  <li
+    data-testid="response"
+  >
+    Prompt: Response:
+  </li>
+</DocumentFragment>
+`;
