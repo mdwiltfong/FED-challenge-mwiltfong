@@ -11,7 +11,7 @@ class OpenAI {
       const data = {
         prompt: prompt,
         temperature: 0,
-        max_tokens: 6,
+        max_tokens: 200,
       };
       const resp = await axios.post(
         "https://api.openai.com/v1/engines/text-curie-001/completions",

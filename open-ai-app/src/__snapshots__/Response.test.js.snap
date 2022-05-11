@@ -2,7 +2,10 @@
 
 exports[`Response component tests Snapshot Tests 1`] = `
 <DocumentFragment>
-  <li>
+  <li
+    class="bg-light text-dark"
+    style="font-weight: bold;"
+  >
     <div
       class="container"
     >
@@ -10,12 +13,12 @@ exports[`Response component tests Snapshot Tests 1`] = `
         class="row"
       >
         <div
-          class="col"
+          class="col-3 text-dark"
         >
           Prompt:
         </div>
         <div
-          class="col"
+          class="col text-dark"
           data-testid="prompt"
         />
       </div>
@@ -23,12 +26,12 @@ exports[`Response component tests Snapshot Tests 1`] = `
         class="row"
       >
         <div
-          class="col"
+          class="col-3 text-dark"
         >
-          Response
+          Response:
         </div>
         <div
-          class="col"
+          class="col text-dark"
           data-testid="response"
         />
       </div>
