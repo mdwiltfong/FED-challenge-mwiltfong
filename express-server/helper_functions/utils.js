@@ -22,7 +22,8 @@ class OpenAI {
           },
         }
       );
-      return resp.data.choices[0].text.trim();
+      const openAiResponse = resp.data.choices[0].text.trim();
+      return openAiResponse;
     } catch (error) {
       throw Error(error.message);
     }
