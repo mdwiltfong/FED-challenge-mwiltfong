@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Response from "./Response";
+const hostName = window.location.hostname;
 const PromptForm = () => {
   const [formData, setFormData] = useState();
   const [responses, setResponses] = useState([]);
@@ -14,7 +15,10 @@ const PromptForm = () => {
       };
       const {
         data: { prompt, response },
-      } = await axios.post("/create_completion", data);
+      } = await axios.post(
+        "https://openai-app-mw.herokuapp.com/create_completion",
+        data
+      );
 
       setResponses((prevResponses) => [
         ...prevResponses,
