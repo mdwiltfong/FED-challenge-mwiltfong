@@ -1,20 +1,29 @@
-const OpenAI = require("./utils");
-const populateStorage = require("../../src/helper_functions/populateStorage");
-const retrieveStorage = require("./retrieveStorage");
-const { response } = require("msw");
-describe("OpenAI Class", () => {
-  it("OpenAI function returns response", async () => {
-    const resp = await OpenAI.create_completion("This is a test");
-    expect(resp).toBe("This is a test.");
-  });
-});
+const populateStorage = require("./populateStorage").default;
+const retrieveStorage = require("./retrieveStorage").default;
 
-beforeAll(() => {
-  global.localStorage = new LocalStorageMock();
-});
-afterAll(() => {
-  delete global.localStorage;
-});
+class LocalStorageMock {
+  constructor() {
+    this.store = {};
+  }
+
+  clear() {
+    this.store = {};
+  }
+
+  getItem(key) {
+    return this.store[key] || null;
+  }
+
+  setItem(key, value) {
+    this.store[key] = String(value);
+  }
+
+  removeItem(key) {
+    delete this.store[key];
+  }
+}
+global.localStorage = new LocalStorageMock();
+
 /* Write tests for populateStorage and retrieveStorage */
 describe("Populate Storage Function Tests", () => {
   it("Function stores values into localStorage that is already empty", () => {
@@ -83,25 +92,3 @@ describe("Retrieve Storage", () => {
     );
   });
 });
-
-class LocalStorageMock {
-  constructor() {
-    this.store = {};
-  }
-
-  clear() {
-    this.store = {};
-  }
-
-  getItem(key) {
-    return this.store[key] || null;
-  }
-
-  setItem(key, value) {
-    this.store[key] = String(value);
-  }
-
-  removeItem(key) {
-    delete this.store[key];
-  }
-}

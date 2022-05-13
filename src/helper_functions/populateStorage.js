@@ -1,4 +1,4 @@
-export function populateStorage({ prompt, response }) {
+function populateStorage({ prompt, response }) {
   const currentStorage = JSON.parse(localStorage.getItem("openai"));
   let updatedStorage;
   if (currentStorage) {
@@ -12,4 +12,4 @@ export function populateStorage({ prompt, response }) {
   localStorage.setItem("openai", JSON.stringify(updatedStorage));
 }
 
-/* Todo: Create a retrieveStorage function */
+export default populateStorage;

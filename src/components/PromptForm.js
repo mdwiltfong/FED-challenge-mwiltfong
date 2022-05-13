@@ -3,7 +3,7 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Response from "./Response";
 import retrieveStorage from "../helper_functions/retrieveStorage";
-import { populateStorage } from "../helper_functions/populateStorage";
+import populateStorage from "../helper_functions/populateStorage";
 const hostName = window.location.hostname;
 const PromptForm = () => {
   const [formData, setFormData] = useState();
@@ -29,8 +29,8 @@ const PromptForm = () => {
       );
       populateStorage({ prompt: prompt, response: response });
       setResponses((prevResponses) => [
-        ...prevResponses,
         { id: uuid(), response: response, prompt: prompt },
+        ...prevResponses,
       ]);
     } catch (error) {
       console.log(error);
