@@ -1,13 +1,13 @@
-function populateStorage({ prompt, response }) {
+function populateStorage({ id, prompt, response }) {
   const currentStorage = JSON.parse(localStorage.getItem("openai"));
   let updatedStorage;
   if (currentStorage) {
     updatedStorage = [
+      { id: id, prompt: prompt, response: response },
       ...currentStorage,
-      { prompt: prompt, response: response },
     ];
   } else {
-    updatedStorage = [{ prompt: prompt, response: response }];
+    updatedStorage = [{ id: id, prompt: prompt, response: response }];
   }
   localStorage.setItem("openai", JSON.stringify(updatedStorage));
 }

@@ -27,7 +27,7 @@ const PromptForm = () => {
         "https://openai-app-mw.herokuapp.com/create_completion",
         data
       );
-      populateStorage({ prompt: prompt, response: response });
+      populateStorage({ id: uuid(), prompt: prompt, response: response });
       setResponses((prevResponses) => [
         { id: uuid(), response: response, prompt: prompt },
         ...prevResponses,
