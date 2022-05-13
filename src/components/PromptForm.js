@@ -2,10 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Response from "./Response";
+import { retrieveStorage } from "../../express-server/helper_functions/retrieveStorage";
+import { populateStorage } from "../../express-server/helper_functions/populateStorage";
 const hostName = window.location.hostname;
 const PromptForm = () => {
   const [formData, setFormData] = useState();
   const [responses, setResponses] = useState([]);
+  useEffect(() => {
+    const storedResponses = retrieveStorage() || null;
+    setResponses(storedResponses);
+  }, []);
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -19,7 +25,7 @@ const PromptForm = () => {
         "https://openai-app-mw.herokuapp.com/create_completion",
         data
       );
-
+      populateStorage({ prompt: prompt, response: response });
       setResponses((prevResponses) => [
         ...prevResponses,
         { id: uuid(), response: response, prompt: prompt },
