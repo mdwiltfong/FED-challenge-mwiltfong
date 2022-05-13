@@ -1,5 +1,5 @@
 const OpenAI = require("./utils");
-const populateStorage = require("./populateStorage");
+const populateStorage = require("../../src/helper_functions/populateStorage");
 const retrieveStorage = require("./retrieveStorage");
 const { response } = require("msw");
 describe("OpenAI Class", () => {
