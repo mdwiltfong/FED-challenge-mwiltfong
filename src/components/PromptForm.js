@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Response from "./Response";
-import { retrieveStorage } from "../../express-server/helper_functions/retrieveStorage";
-import { populateStorage } from "../../express-server/helper_functions/populateStorage";
+import { retrieveStorage } from "../helper_functions/retrieveStorage";
+import { populateStorage } from "../helper_functions/populateStorage";
 const hostName = window.location.hostname;
 const PromptForm = () => {
   const [formData, setFormData] = useState();
