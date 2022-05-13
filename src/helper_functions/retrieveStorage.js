@@ -9,4 +9,4 @@ function retrieveStorage() {
   }
 }
 
-module.exports = retrieveStorage;
+export default retrieveStorage;
