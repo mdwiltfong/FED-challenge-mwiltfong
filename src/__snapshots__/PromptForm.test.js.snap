@@ -13,7 +13,37 @@ exports[`PromptForm component Tests Snapshot Tests 1`] = `
     data-testid="prompt-form"
     style="max-width: 100%;"
   >
+    <label
+      for="engine"
+    >
+      Select an AI Engine 
+    </label>
+    <select
+      name="engine"
+    >
+      <option
+        value="text-davinci-002"
+      >
+        text-davinci-002
+      </option>
+      <option
+        value="text-curie-001"
+      >
+        text-curie-001
+      </option>
+      <option
+        value="text-babbage-001"
+      >
+        text-babbage-001
+      </option>
+      <option
+        value="text-ada-001"
+      >
+        text-ada-001
+      </option>
+    </select>
     <textarea
+      name="textarea"
       rows="10"
     />
     <button

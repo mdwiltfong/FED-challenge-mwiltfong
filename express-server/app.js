@@ -17,7 +17,9 @@ app.get("/*", (req, res) => {
 app.post("/create_completion", async (req, res) => {
   try {
     const { prompt } = req.body;
-    const response = await OpenAI.create_completion(prompt);
+    const { engine } = req.params;
+    console.log(engine);
+    const response = await OpenAI.create_completion(prompt, engine);
     return res.send({
       prompt: prompt,
       response: response,

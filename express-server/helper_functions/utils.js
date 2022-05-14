@@ -5,16 +5,15 @@ const env = dotenv.config();
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 class OpenAI {
-  static async create_completion(prompt) {
+  static async create_completion(prompt, engine) {
     try {
-      //const config = { Authorization: `Bearer ${OPENAI_API_KEY}` };
       const data = {
         prompt: prompt,
         temperature: 0,
         max_tokens: 200,
       };
       const resp = await axios.post(
-        "https://api.openai.com/v1/engines/text-curie-001/completions",
+        `https://api.openai.com/v1/engines/${engine}/completions`,
         data,
         {
           headers: {
