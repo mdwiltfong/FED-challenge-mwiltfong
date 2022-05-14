@@ -5,7 +5,7 @@ const env = dotenv.config();
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 class OpenAI {
-  static async create_completion(prompt) {
+  static async create_completion(prompt, engine) {
     try {
       const data = {
         prompt: prompt,
