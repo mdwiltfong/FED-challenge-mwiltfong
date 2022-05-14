@@ -7,7 +7,7 @@ import populateStorage from "../helper_functions/populateStorage";
 const hostName = window.location.hostname;
 const PromptForm = () => {
   const INITIAL_STATE = {
-    engine: "",
+    engine: "text-curie-001",
     textarea: "",
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
@@ -59,6 +59,7 @@ const PromptForm = () => {
       ...prevState,
       [name]: value,
     }));
+    console.log(formData);
   };
   let responseContent;
   if (responses.length > 0) {
