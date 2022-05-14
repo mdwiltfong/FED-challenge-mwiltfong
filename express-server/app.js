@@ -5,8 +5,6 @@ const app = express();
 const cors = require("cors");
 const publicPath = path.join(__dirname, "..", "build");
 const filePath = path.join(publicPath, "index.html");
-console.log(publicPath);
-console.log(filePath);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -17,7 +15,7 @@ app.get("/*", (req, res) => {
 app.post("/create_completion", async (req, res) => {
   try {
     const { prompt } = req.body;
-    const { engine } = req.params;
+    const { engine } = req.query;
     console.log(engine);
     const response = await OpenAI.create_completion(prompt, engine);
     return res.send({
