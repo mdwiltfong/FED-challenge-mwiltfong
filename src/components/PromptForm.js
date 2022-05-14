@@ -6,7 +6,11 @@ import retrieveStorage from "../helper_functions/retrieveStorage";
 import populateStorage from "../helper_functions/populateStorage";
 const hostName = window.location.hostname;
 const PromptForm = () => {
-  const [formData, setFormData] = useState();
+  const INITIAL_STATE = {
+    engine: "",
+    textarea: "",
+  };
+  const [formData, setFormData] = useState(INITIAL_STATE);
   const [responses, setResponses] = useState([]);
   useEffect(() => {
     const storedResponses = retrieveStorage() || null;
@@ -19,13 +23,18 @@ const PromptForm = () => {
       e.preventDefault();
       const data = {
         id: uuid(),
-        prompt: formData,
+        prompt: formData.textarea,
       };
+      const config = {
+        params: { engine: formData.engine },
+      };
+
       const {
         data: { prompt, response },
       } = await axios.post(
         "https://openai-app-mw.herokuapp.com/create_completion",
-        data
+        data,
+        config
       );
       populateStorage({ id: uuid(), prompt: prompt, response: response });
       setResponses((prevResponses) => [
@@ -36,9 +45,20 @@ const PromptForm = () => {
       console.log(error);
     }
   };
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setFormData(value);
+  const handleChangeTextArea = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
   let responseContent;
   if (responses.length > 0) {
@@ -69,6 +89,7 @@ const PromptForm = () => {
     <>
       <h1>Fun with AI</h1>
       <p>Enter prompt</p>
+
       <form
         style={{
           maxWidth: "100%",
@@ -77,7 +98,25 @@ const PromptForm = () => {
         data-testid="prompt-form"
         onSubmit={handleSubmit}
       >
-        <textarea onChange={handleChange} rows="10" value={formData}></textarea>
+        <label htmlFor="engine">Select an AI Engine </label>
+        <select
+          value={formData.input}
+          onChange={handleChangeInput}
+          name="engine"
+        >
+          <option value="text-davinci-002">text-davinci-002</option>
+          <option selected value="text-curie-001">
+            text-curie-001
+          </option>
+          <option value="text-babbage-001">text-babbage-001</option>
+          <option value="text-ada-001">text-ada-001</option>
+        </select>
+        <textarea
+          onChange={handleChangeTextArea}
+          rows="10"
+          value={formData.textarea}
+          name="textarea"
+        ></textarea>
         <button
           style={{
             margin: "0 auto",
