@@ -2,7 +2,17 @@
 
 ## Quick Description:
 
-This is my submission for Shopify's Front End Developer Intern position. The app will use React for the front end, and Express as a server. In addition, I will be using the Open AI API.
+Hey there! This is integration app for the OpenAI API. You can find the live site here: `https://openai-app-mw.herokuapp.com/` This app simply sends prompts to OpenAI's `/create_completion` end point. In addition, it allows the client to select which engine to choose as well as stores the returned responses on their local browser. This app uses the following technologies:
+
+- React
+- Express
+- Bootstrap
+- Mock Service Worker (MSW)
+- Jest
+
+In addition, this was build with Test Driven Development in mind, meaning that all the functions and features were first developed by writing their respective tests. Below you can find the initial specifications of the app as well as how to run the app locally on your machine. 
+
+If you're interested in seeing what else I have been developing lately, check out at `https://teacher-pay.herokuapp.com/` or `https://github.com/mdwiltfong/capstone_one` 
 
 ## Specifications:
 
@@ -18,16 +28,8 @@ This is my submission for Shopify's Front End Developer Intern position. The app
 - Any framework can be used, or none.
 - The project must also be hosted on a live site.
 
-## Extra Features:
+## How to run locally on your machine
 
-- It's recommended to only choose one or two extra features:
-  - Save responses if the user leaves or reloads the page
-  - Let the user choose the AI enginer from a selected box
-  - Add some presets for the user to quickly send a good prompt
-  - Make the app more specific to a single purpose.
-
-## Submission:
-
-- A link to the website containing the app.
-- A link to the github repository.
-- Any other notes to consider alongside the page.
+- Download/clone the repo onto your machine
+- Make sure PORT 3000 is available on your machine. I like to use `npx kill-port 3000` to verify this.
+- From the root directory run `npm run server` This will render the client code in your browser. 
