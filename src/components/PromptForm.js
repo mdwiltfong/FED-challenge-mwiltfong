@@ -4,6 +4,7 @@ import { v4 as uuid } from "uuid";
 import Response from "./Response";
 import retrieveStorage from "../helper_functions/retrieveStorage";
 import populateStorage from "../helper_functions/populateStorage";
+import "./styles/PromptForm.css";
 
 const PromptForm = () => {
   const INITIAL_STATE = {
@@ -80,17 +81,20 @@ const PromptForm = () => {
   } else {
     responseContent = (
       <>
-        <h2>Responses</h2>
-        <p>Submit a prompt to get a response from the Open AI API!</p>
+        <h2 aria-label="Responses">Responses</h2>
+        <p aria-label="Submit a prompt to get a response from the Open AI API!">
+          Submit a prompt to get a response from the Open AI API!
+        </p>
       </>
     );
   }
 
   return (
     <>
-      <h1>Fun with AI</h1>
-      <p>Enter prompt</p>
-
+      <h1 aria-label="Fun With AI">Fun with AI</h1>
+      <a id="skip-nav" className="screenreader-text" href="#main-content">
+        Skip Navigation or Skip to Content
+      </a>
       <form
         style={{
           maxWidth: "100%",
@@ -98,25 +102,34 @@ const PromptForm = () => {
         className="d-flex flex-column"
         data-testid="prompt-form"
         onSubmit={handleSubmit}
+        role="form"
+        aria-label="Text Area Form"
       >
-        <label htmlFor="engine">Select an AI Engine </label>
+        <label htmlFor="engine" aria-label="Select an AI Engine">
+          Select an AI Engine{" "}
+        </label>
         <select
-          value={formData.input}
+          defaultValue={formData.engine}
           onChange={handleChangeInput}
           name="engine"
+          style={{
+            width: "200px",
+          }}
         >
           <option value="text-davinci-002">text-davinci-002</option>
-          <option selected value="text-curie-001">
-            text-curie-001
-          </option>
+          <option value="text-curie-001">text-curie-001</option>
           <option value="text-babbage-001">text-babbage-001</option>
           <option value="text-ada-001">text-ada-001</option>
         </select>
+        <label htmlFor="textarea">Enter your Prompt</label>
         <textarea
           onChange={handleChangeTextArea}
           rows="10"
           value={formData.textarea}
           name="textarea"
+          id="main-content"
+          role="main"
+          aria-label="Text Area"
         ></textarea>
         <button
           style={{
@@ -126,6 +139,8 @@ const PromptForm = () => {
             backgroundColor: "#0043C8",
           }}
           className="btn btn-primary"
+          role="button"
+          aria-label="Submit Prompt Button to OpenAI API"
         >
           Submit
         </button>
