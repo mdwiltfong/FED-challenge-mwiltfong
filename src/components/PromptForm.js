@@ -67,7 +67,7 @@ const PromptForm = () => {
     responseContent = (
       <>
         <h2>Responses</h2>
-        <ul style={{ listStyle: "none", padding: "0" }}>
+        <ul aria-label="Responses" style={{ listStyle: "none", padding: "0" }}>
           {responses.map((response) => (
             <Response
               key={response.id}
@@ -105,7 +105,7 @@ const PromptForm = () => {
         role="form"
         aria-label="Text Area Form"
       >
-        <label htmlFor="engine" aria-label="Select an AI Engine">
+        <label htmlFor="engine" aria-label="listbox">
           Select an AI Engine{" "}
         </label>
         <select
