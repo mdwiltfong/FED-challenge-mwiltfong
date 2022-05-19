@@ -1,4 +1,5 @@
 import { rest } from "msw";
+/* Mock Service Worker requires handlers to know how to deal with intercepted API calls. These handlers are only used in testing  */
 export const handlers = [
   rest.post("*/create_completion", (req, res, ctx) => {
     return res(

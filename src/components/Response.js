@@ -1,5 +1,5 @@
 import React from "react";
-
+/* This component will render the responses from OpenAI */
 const Response = ({ prompt, response }) => {
   return (
     <li

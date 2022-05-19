@@ -1,6 +1,8 @@
 function retrieveStorage() {
-  /* Write function for retrieving storage.
-     Keep in mind that maybe populateStorage needs to be refactored */
+  /* This function retrieves any storage in the client's browser and then parses it into a JSON object.
+ In the event there are no responses in the local storage, it returns null. 
+ 
+ */
 
   if (localStorage.getItem("openai")) {
     return JSON.parse(localStorage.getItem("openai"));

@@ -3,7 +3,7 @@ const axios = require("axios");
 const env = dotenv.config();
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-
+/* This class will be used to handle any responses sent to OpenAI */
 class OpenAI {
   static async create_completion(prompt, engine) {
     try {

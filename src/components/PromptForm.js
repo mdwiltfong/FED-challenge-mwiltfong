@@ -7,23 +7,30 @@ import populateStorage from "../helper_functions/populateStorage";
 import "./styles/PromptForm.css";
 
 const PromptForm = () => {
+  /* This component will be the main component of the app. It will host the state of the form as well as make API calls. */
   const INITIAL_STATE = {
     engine: "text-curie-001",
     textarea: "",
   };
+
+  /* The app dropdown box will default to text-curie-001 */
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [responses, setResponses] = useState([]);
   useEffect(() => {
     const storedResponses = retrieveStorage() || null;
+    /* Upon loading the page, the app will retrieve, if any, responses stored in the browser under 'openai' */
     if (storedResponses) {
       setResponses(storedResponses);
+      /* If there are any responses stored, the state of `responses` will be updated */
     }
   }, []);
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       const data = {
         id: uuid(),
+        /* uuid will help create unique keys for the responses */
         prompt: formData.textarea,
       };
       const config = {
@@ -37,15 +44,20 @@ const PromptForm = () => {
         data,
         config
       );
+      /* This is the live server endpoint */
       populateStorage({ id: uuid(), prompt: prompt, response: response });
+      /* Upon a successful response, data will be stored in the browser through `populateStorage` */
       setResponses((prevResponses) => [
         { id: uuid(), response: response, prompt: prompt },
         ...prevResponses,
       ]);
+      /* Using the spread operator, we can assure that responses will be loaded from newest to oldest */
     } catch (error) {
       console.log(error);
     }
   };
+
+  /* The following handleChange functions will make sure the state of the form is updated when there are any changes */
   const handleChangeTextArea = (e) => {
     const { name, value } = e.target;
 
@@ -62,6 +74,7 @@ const PromptForm = () => {
     }));
     console.log(formData);
   };
+  /* In the even there are no responses stored in the browser, the page will show a default prompt instructing the user to create responses */
   let responseContent;
   if (responses.length > 0) {
     responseContent = (
@@ -74,6 +87,7 @@ const PromptForm = () => {
               prompt={response.prompt}
               response={response.response}
             />
+            /* The response component will host the logic for the responses from Openai */
           ))}
         </ul>
       </>

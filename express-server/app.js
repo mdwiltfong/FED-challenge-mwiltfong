@@ -13,11 +13,13 @@ app.get("/*", (req, res) => {
   res.sendFile(filePath);
 });
 app.post("/create_completion", async (req, res) => {
+  /* In order to add future security to the site, an express server was used instead of an NPM package */
   try {
     const { prompt } = req.body;
     const { engine } = req.query;
-    console.log(engine);
+
     const response = await OpenAI.create_completion(prompt, engine);
+    /* A custom Openai class is used to handle the call to the Openai */
     return res.send({
       prompt: prompt,
       response: response,
@@ -26,6 +28,8 @@ app.post("/create_completion", async (req, res) => {
     console.log(error);
   }
 });
+
+/* In the event there is an error in handling the requests, this middleware will log the result */
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
 
