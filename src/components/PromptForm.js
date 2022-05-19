@@ -103,7 +103,7 @@ const PromptForm = () => {
         data-testid="prompt-form"
         onSubmit={handleSubmit}
         role="form"
-        aria-label="Text Area Form"
+        aria-label="Form"
       >
         <label htmlFor="engine" aria-label="listbox">
           Select an AI Engine{" "}
